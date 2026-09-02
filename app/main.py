@@ -111,13 +111,15 @@ async def dashboard_view(
     try:
         messages = db.query(MessageRecord).order_by(MessageRecord.created_at.desc()).limit(50).all()
         return templates.TemplateResponse(
-            request=request,
-            name="dashboard.html",
-            context={"messages": messages, "status_msg": status_msg, "status_type": status_type}
+            request,
+            "dashboard.html",
+            {"messages": messages, "status_msg": status_msg, "status_type": status_type}
         )
     except Exception as exc:
         logger.exception(f"Error cargando dashboard: {exc}")
         raise HTTPException(status_code=500, detail=f"Error al cargar el dashboard: {str(exc)}")
+
+
 
 
 @app.post("/dashboard/send")
