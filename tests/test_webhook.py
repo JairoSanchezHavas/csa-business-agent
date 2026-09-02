@@ -3,6 +3,9 @@ from fastapi.testclient import TestClient
 from app.main import app
 from app.config import get_settings
 
+from app.database import init_db
+
+init_db()
 client = TestClient(app)
 settings = get_settings()
 
@@ -24,3 +27,8 @@ def test_post_invalid_signature():
     sig = generate_signature(payload, "clave_falsa")
     resp = client.post("/webhook", content=payload, headers={"Content-Type": "application/json", "X-Hub-Signature-256": sig})
     assert resp.status_code == 403
+
+def test_dashboard_get():
+    resp = client.get("/dashboard")
+    assert resp.status_code == 200
+

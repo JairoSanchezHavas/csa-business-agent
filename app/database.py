@@ -31,6 +31,9 @@ class MessageRecord(Base):
 def init_db():
     Base.metadata.create_all(bind=engine)
 
+# Crear tablas inmediatamente al importar para garantizar existencia
+init_db()
+
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
