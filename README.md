@@ -155,6 +155,7 @@ csa-business-agent/
 │
 ├── .env.example              # Plantilla de variables de entorno
 ├── Dockerfile                # Configuración de contenedor optimizada
+├── Procfile                  # Comando de punto de entrada para GCP Buildpacks
 ├── requirements.txt          # Dependencias de Python
 ├── deploy_local.md           # Guía paso a paso para entorno local (Docker + Tunnel)
 └── deploy_gcp.md             # Guía paso a paso para entorno producción (GCP Cloud Run)

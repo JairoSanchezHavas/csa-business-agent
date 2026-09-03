@@ -93,7 +93,7 @@ echo -n "109876543210987" | gcloud secrets create PHONE_NUMBER_ID --data-file=-
 
 ## 🚀 Paso 4: Desplegar el Servicio en Cloud Run
 
-Ejecuta el despliegue directo desde la raíz del proyecto en Cloud Shell. Google Cloud Build compilará el contenedor según el `Dockerfile` y lo desplegará en Cloud Run:
+Ejecuta el despliegue directo desde la raíz del proyecto en Cloud Shell. Google Cloud Build compilará la aplicación utilizando el archivo `Procfile` (o `Dockerfile`) y la desplegará en Cloud Run:
 
 ```bash
 gcloud run deploy $SERVICE_NAME \
